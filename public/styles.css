@@ -1,0 +1,163 @@
+/* General reset */
+body, h1, h2, p, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+  }
+  
+  body {
+    background-color: #333;
+    margin: 0;
+  }
+  
+  /* Hero section */
+  .hero {
+    background: url('img/couple-background.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .rsvp-btn {
+    background-color: #ff7b85;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rsvp-btn:hover {
+    background-color: #ff9aa2;
+  }
+  
+  /* Countdown */
+  #countdown {
+    padding: 50px;
+    background: #444;
+    text-align: center;
+  }
+  
+  #countdown h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  #timer {
+    font-size: 1.5rem;
+  }
+  
+  #timer span {
+    font-weight: bold;
+    color: #ff7b85;
+  }
+  
+  /* Timeline */
+  #timeline {
+    padding: 50px;
+    background: #555;
+    text-align: center;
+    position: relative;
+  }
+  
+  .line {
+    width: 80%;
+    height: 2px;
+    background-color: #fff;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  #event {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .icon {
+    width: 50px;
+    height: auto;
+  }
+  
+  #novios {
+    position: relative;
+    left: 0;
+  }
+  
+  #castillo {
+    position: relative;
+    right: 0;
+    width: 80px;
+  }
+  
+  /* Info Section */
+  #info {
+    padding: 50px;
+    background: #444;
+    color: #fff;
+  }
+  
+/* Botones en una sola columna en móviles */
+.buttons {
+    display: flex; /* Flexbox para centrar los botones */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 50px; /* Espacio entre los botones */
+    margin-top: 60px; /* Espacio adicional desde arriba */
+}
+
+.buttons button {
+    width: 200px; /* Tamaño más grande para los botones */
+    height: 180px; /* Asegura que sean círculos más grandes */
+    border-radius: 50%; /* Redondeo completo */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid white; /* Borde blanco más grueso */
+    color: white; /* Texto blanco */
+    font-size: 1.2rem; /* Texto más grande */
+    text-align: center; /* Centra el texto */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: all 0.3s ease; /* Animación de hover */
+    display: flex; /* Para alinear contenido dentro del círculo */
+    align-items: center; /* Centra verticalmente el texto */
+    justify-content: center; /* Centra horizontalmente el texto */
+}
+
+/* Hover para los botones */
+.buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar el ratón */
+    color: white; /* Texto blanco */
+    border-color: white; /* Mantiene el borde blanco */
+}
+
+
+  /* Footer */
+  footer {
+    background: #222;
+    padding: 10px;
+    color: #fff;
+  }
+  
