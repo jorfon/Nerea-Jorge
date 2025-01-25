@@ -1,0 +1,20 @@
+{
+  "name": "wedding-website",
+  "version": "1.0.0",
+  "description": "A beautiful wedding website to share details about the couple and the event.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build process not defined yet.'"
+  },
+  "keywords": [
+    "wedding",
+    "website",
+    "event"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^11.0.1"
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Nerea & Jorge</h1>
+      <p>Octubre 25, 2025 · Torre Loizaga, Galdamés</p>
+      <button class="rsvp-btn" onclick="location.href='#rsvp'">RSVP</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Cuenta atrás -->
+    <section id="countdown">
+      <h2>Cuenta atrás para la boda</h2>
+      <div id="timer">
+        <span id="days">00</span> days
+        <span id="hours">00</span> hours
+        <span id="minutes">00</span> minutes
+        <span id="seconds">00</span> seconds
+      </div>
+    </section>
+
+    <!-- Línea de tiempo -->
+    <section id="timeline">
+      <h2>Nuestro Viaje Juntos</h2>
+      <div class="line"></div>
+      <div id="event">
+        <img src="img/novios-juntos.png" alt="Couple" class="icon" id="novios">
+        <img src="img/castillo.png" alt="Castle" class="icon" id="castillo">
+      </div>
+    </section>
+
+<!-- Botones interactivos -->
+<section id="actions">
+    <h2>¿Qué quieres hacer?</h2>
+    <div class="buttons">
+      <button onclick="location.href='buses.html'">🚌 Elegir un Bus</button>
+      <button onclick="location.href='alergias.html'">🌱 Registrar Alergias</button>
+      <button onclick="location.href='info.html'">📅 Información de la Boda</button>
+    </div>
+  </section>
+
+
+    <!-- Información -->
+    <section id="info">
+      <h2>Detalles de la boda</h2>
+      <p>Uníos a nuestra celebración en la Torre Loizaga. ¡ Haz click en el botón RSVP para confirmar asistencia!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Con amor, Nerea & Jorge</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
