@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,50 +10,107 @@
   <header class="hero">
     <div class="overlay">
       <h1>Nerea & Jorge</h1>
-      <p>Octubre 25, 2025 · Torre Loizaga, Galdamés</p>
+      <p>25 de Octubre, 2025 · Torre Loizaga, Galdamés</p>
       <button class="rsvp-btn" onclick="location.href='#rsvp'">RSVP</button>
     </div>
+
+
+    <div class="countdown-container">
+        <div class="countdown-item">
+          <span id="days">00</span>
+          <p>DAYS</p>
+        </div>
+        <div class="countdown-item">
+          <span id="hours">00</span>
+          <p>HOURS</p>
+        </div>
+        <div class="countdown-item">
+          <span id="minutes">00</span>
+          <p>MINUTES</p>
+        </div>
+        <div class="countdown-item">
+          <span id="seconds">00</span>
+          <p>SECONDS</p>
+        </div>
+      </div>
   </header>
 
+  <!-- Nueva cuenta atrás con diseño elegante -->
+
+
   <main>
-    <!-- Cuenta atrás -->
-    <section id="countdown">
-      <h2>Cuenta atrás para la boda</h2>
-      <div id="timer">
-        <span id="days">00</span> days
-        <span id="hours">00</span> hours
-        <span id="minutes">00</span> minutes
-        <span id="seconds">00</span> seconds
-      </div>
-    </section>
+    
 
     <!-- Línea de tiempo -->
     <section id="timeline">
       <h2>Nuestro Viaje Juntos</h2>
-      <div class="line"></div>
-      <div id="event">
+      <div id="progress-percentage">0%</div>
+      <div class="line-container">
+        <div class="timeline-date start-date">14/09/2024</div>
+        <div class="timeline-date end-date">25/10/2025</div>
+        <div class="line"></div>
+        <div class="timeline-icons">
+          <img src="img/lyon.png" alt="Lyon" class="start-icon">
+          <img src="img/castillo.png" alt="Castle" class="end-icon">
+        </div>
         <img src="img/novios-juntos.png" alt="Couple" class="icon" id="novios">
-        <img src="img/castillo.png" alt="Castle" class="icon" id="castillo">
       </div>
     </section>
 
-<!-- Botones interactivos -->
-<section id="actions">
-    <h2>¿Qué quieres hacer?</h2>
-    <div class="buttons">
-      <button onclick="location.href='buses.html'">🚌 Elegir un Bus</button>
-      <button onclick="location.href='alergias.html'">🌱 Registrar Alergias</button>
-      <button onclick="location.href='info.html'">📅 Información de la Boda</button>
-    </div>
-  </section>
-
-
-    <!-- Información -->
-    <section id="info">
-      <h2>Detalles de la boda</h2>
-      <p>Uníos a nuestra celebración en la Torre Loizaga. ¡ Haz click en el botón RSVP para confirmar asistencia!</p>
+    <!-- Sección de botones interactivos -->
+    <section id="actions">
+      <h2>¿Qué quieres hacer?</h2>
+      <div class="buttons-container" id="buttons-container">
+        <button id="info-evento">📍 Información del evento</button>
+        <button id="confirmar-asistencia">✅ Confirmar asistencia</button>
+      </div>
+      
+      <!-- Información del evento -->
+      <div class="info-container" id="info-evento-container">
+          <div class="info-box">
+              <div>
+                  <h2>Ubicación y Horarios</h2>
+                  <p>Información sobre la ermita y lugar del evento.</p>
+              </div>
+              <div>
+                  <h2>Autobuses</h2>
+                  <p>Ubicación y horarios de ida y vuelta.</p>
+              </div>
+          </div>
+          <button onclick="resetView()">🔙 Volver</button>
+      </div>
+      
+      <!-- Formulario de confirmación de asistencia -->
+      <div class="info-container" id="confirmar-asistencia-container">
+          <div class="info-box">
+              <div>
+                  <h2>Confirmación de Asistencia</h2>
+                  <p>Nombre y apellidos: <input type="text" id="name"></p>
+                  <p>¿Asistiré a la boda? <select id="attendance"><option>Sí</option><option>No</option></select></p>
+              </div>
+              <div>
+                  <h2>Autobús</h2>
+                  <p>¿Necesitarás autobús para la ida? <select id="bus-ida"><option>Moyua</option><option>Sarriko</option><option>No</option></select></p>
+                  <p>¿Necesitarás autobús de vuelta? <select id="bus-vuelta"><option>22 horas</option><option>Fin de fiesta</option><option>No</option></select></p>
+              </div>
+              <div>
+                  <h2>Consideraciones</h2>
+                  <p>¿Alergias o intolerancias? <input type="text" id="allergies"></p>
+                  <p>¿Alguna otra consideración? <input type="text" id="considerations"></p>
+              </div>
+          </div>
+          <button onclick="resetView()">🔙 Volver</button>
+          <!-- Botón de Enviar Datos -->
+          <button onclick="enviarDatos()">Enviar Datos</button>
+      </div>
     </section>
   </main>
+
+  <!-- Información -->
+  <section id="info">
+      <h2>Detalles de la boda</h2>
+      <p>Uníos a nuestra celebración en la Torre Loizaga. ¡Haz click en el botón RSVP para confirmar asistencia!</p>
+  </section>
 
   <footer>
     <p>Con amor, Nerea & Jorge</p>
@@ -62,3 +119,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

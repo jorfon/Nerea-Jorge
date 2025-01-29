@@ -1,44 +1,81 @@
 /* General reset */
-body, h1, h2, p, button {
+body, p, button {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     color: #fff;
     text-align: center;
-  }
-  
-  body {
+}
+
+body {
     background-color: #333;
     margin: 0;
-  }
-  
-  /* Hero section */
-  .hero {
+}
+
+/* Hero section */
+.hero {
     background: url('img/couple-background.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-  }
-  
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.overlay {
+    background-color: transparent;
     padding: 20px;
     border-radius: 10px;
-  }
-  
-  .hero h1 {
+}
+
+.wedding-text {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+* Adaptación de texto para móviles */
+.wedding-names {
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    text-align: center;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .wedding-names {
+        font-size: 2.5rem;
+    }
+    .wedding-text {
+        font-size: 1rem;
+    }
+    .wedding-date {
+        font-size: 1.2rem;
+    }
+}
+
+
+.wedding-date {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-  }
-  
-  .hero p {
+    font-family: inherit; /* Evita que Arial sobrescriba el h1 */
+}
+
+.hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-  }
-  
-  .rsvp-btn {
+}
+
+.rsvp-btn {
     background-color: #ff7b85;
     border: none;
     padding: 15px 30px;
@@ -47,117 +84,332 @@ body, h1, h2, p, button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .rsvp-btn:hover {
+}
+
+.rsvp-btn:hover {
     background-color: #ff9aa2;
-  }
-  
-  /* Countdown */
-  #countdown {
+}
+
+/* Adaptación de la cuenta atrás para móviles */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    background: transparent;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 768px) {
+    .countdown-container {
+        gap: 20px;
+        font-size: 1.5rem;
+    }
+    .countdown-item span {
+        font-size: 2rem;
+    }
+    .countdown-item p {
+        font-size: 0.9rem;
+    }
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-item span {
+    font-size: 3rem;
+    font-weight: 200;
+}
+
+.countdown-item p {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Ajuste general para dispositivos pequeños */
+@media (max-width: 480px) {
+    .hero {
+        height: 80vh;
+        padding: 10px;
+    }
+    .wedding-names {
+        font-size: 2rem;
+    }
+    .wedding-text {
+        font-size: 0.8rem;
+    }
+    .wedding-date {
+        font-size: 1rem;
+    }
+    .countdown-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    #timeline {
+        padding: 40px 5px;
+    }
+    .timeline-date {
+        font-size: 0.8rem;
+    }
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .buttons-container button {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        padding: 15px;
+    }
+    .info-box {
+        flex-direction: column;
+    }
+}
+/* Countdown 
+#countdown {
     padding: 50px;
     background: #444;
     text-align: center;
-  }
-  
-  #countdown h2 {
+}
+
+#countdown h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-  }
-  
-  #timer {
+}
+
+#timer {
     font-size: 1.5rem;
-  }
-  
-  #timer span {
+}
+
+#timer span {
     font-weight: bold;
     color: #ff7b85;
-  }
-  
-  /* Timeline */
-  #timeline {
-    padding: 50px;
+}*/
+
+/* Timeline Section */
+#timeline {
+    padding: 100px;
     background: #555;
     text-align: center;
     position: relative;
-  }
-  
-  .line {
-    width: 80%;
-    height: 2px;
+}
+
+#timeline h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#progress-container {
+    display: inline-block;
     background-color: #fff;
-    margin: 20px auto;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#progress-percentage {
+    font-size: 1.2rem;
+    color: #ff7b85;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de línea y elementos */
+.line-container {
     position: relative;
-  }
-  
-  #event {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 80%;
     margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.timeline-date {
+    position: absolute;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    top: -25px;
+}
+
+.start-date {
+    left: 0;
+}
+
+.end-date {
+    right: 0;
+}
+
+.line {
+    height: 5px;
+    background: #fff;
     position: relative;
-  }
-  
-  .icon {
+    margin: 20px 0;
+    border-radius: 5px;
+    z-index: 1; /* La línea debe estar debajo de los iconos */
+}
+
+/* Iconos estáticos debajo de las fechas */
+.timeline-icons {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.start-icon, 
+.end-icon {
     width: 50px;
     height: auto;
-  }
-  
-  #novios {
-    position: relative;
-    left: 0;
-  }
-  
-  #castillo {
-    position: relative;
-    right: 0;
-    width: 80px;
-  }
-  
-  /* Info Section */
-  #info {
+}
+
+/* start-icon debe mostrar Lyon, end-icon el Castillo */
+.start-icon {
+    background: url('img/lyon.png') center/cover no-repeat;
+    background-size: contain;
+}
+
+.end-icon {
+    background: url('img/castillo.png') center/cover no-repeat;
+    background-size: contain;
+}
+
+/* Novios en movimiento */
+#novios {
+    position: absolute;
+    top: 10px; /* Lo movemos más cerca de la línea, justo debajo */
+    left: 0; /* Posición inicial para que el icono esté alineado a la izquierda */
+    width: 50px; /* Tamaño similar a los otros iconos */
+    height: auto;
+    transform: translateX(0);
+    transition: transform 0.5s linear;
+    z-index: 2; /* Asegura que esté por encima de la línea */
+}
+
+/* Info Section */
+#info {
     padding: 50px;
     background: #444;
     color: #fff;
-  }
-  
-/* Botones en una sola columna en móviles */
-.buttons {
-    display: flex; /* Flexbox para centrar los botones */
-    justify-content: center; /* Centra horizontalmente */
-    gap: 50px; /* Espacio entre los botones */
-    margin-top: 60px; /* Espacio adicional desde arriba */
 }
 
-.buttons button {
-    width: 200px; /* Tamaño más grande para los botones */
-    height: 180px; /* Asegura que sean círculos más grandes */
-    border-radius: 50%; /* Redondeo completo */
-    background-color: transparent; /* Fondo transparente */
-    border: 2px solid white; /* Borde blanco más grueso */
-    color: white; /* Texto blanco */
-    font-size: 1.2rem; /* Texto más grande */
-    text-align: center; /* Centra el texto */
-    cursor: pointer; /* Cambia el cursor a puntero */
-    transition: all 0.3s ease; /* Animación de hover */
-    display: flex; /* Para alinear contenido dentro del círculo */
-    align-items: center; /* Centra verticalmente el texto */
-    justify-content: center; /* Centra horizontalmente el texto */
+/* Botones interactivos */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-/* Hover para los botones */
-.buttons button:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente al pasar el ratón */
-    color: white; /* Texto blanco */
-    border-color: white; /* Mantiene el borde blanco */
+.buttons-container button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.buttons-container button:hover {
+    background-color: #0056b3;
+}
 
-  /* Footer */
-  footer {
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.info-container {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    width: 100%; /* Ahora ocupará todo el ancho */
+    max-width: 100%;
+    margin: 0 auto; /* Centrar */
+    padding: 40px 10%;
+    background: #2a2a2a; /* Un color más oscuro para igualar la sección superior */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Mostrar el contenedor cuando se active */
+.info-container.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajuste para que las preguntas ocupen el ancho completo */
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Ajustar el ancho máximo */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Cada bloque debe ocupar el mismo ancho */
+.info-box div {
+    flex: 1;
+    min-width: 300px; /* Evitar que se colapsen demasiado en pantallas pequeñas */
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Asegurar que los inputs y selects sean responsivos */
+.info-box input, 
+.info-box select, 
+.info-box textarea {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Botón de volver centrado */
+.volver-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
     background: #222;
     padding: 10px;
     color: #fff;
-  }
-  
+}
