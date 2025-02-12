@@ -8,8 +8,13 @@ body, p, button {
 }
 
 body {
-    background-color: #333;
+    background-color: #e7f1ed;
     margin: 0;
+}
+
+/* Cambiar color del título "¿Qué quieres hacer?" */
+#actions  h2 {
+    color: rgba(29, 27, 27, 0.845); /* 🔹 Hace que el texto del título sea negro */
 }
 
 /* Hero section */
@@ -175,26 +180,6 @@ body {
         flex-direction: column;
     }
 }
-/* Countdown 
-#countdown {
-    padding: 50px;
-    background: #444;
-    text-align: center;
-}
-
-#countdown h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-#timer {
-    font-size: 1.5rem;
-}
-
-#timer span {
-    font-weight: bold;
-    color: #ff7b85;
-}*/
 
 /* Timeline Section */
 #timeline {
@@ -318,8 +303,8 @@ body {
     height: 150px;
     border-radius: 50%;
     background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #CFAF5C;
+    color: #CFAF5C;
     font-size: 1.2rem;
     text-align: center;
     cursor: pointer;
@@ -330,30 +315,36 @@ body {
 }
 
 .buttons-container button:hover {
-    background-color: #0056b3;
+    background-color: #CFAF5C; /* 🔹 Un dorado más elegante al pasar el mouse */
+    border-color: #CFAF5C;
+    color: white; /* 🔹 Texto blanco para mejor contraste */
 }
 
-.hidden {
+/*.hidden {
     opacity: 0;
     pointer-events: none;
+}
+*/
+.hidden {
+    display: none !important; /* Oculta completamente los elementos */
 }
 
 .info-container {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    width: 100%; /* Ahora ocupará todo el ancho */
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto; /* Centrar */
+    margin: 0 auto;
     padding: 40px 10%;
-    background: #2a2a2a; /* Un color más oscuro para igualar la sección superior */
+    background: #e7f1ed;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Mostrar el contenedor cuando se active */
 .info-container.active {
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
     opacity: 1;
@@ -375,10 +366,162 @@ body {
     flex: 1;
     min-width: 300px; /* Evitar que se colapsen demasiado en pantallas pequeñas */
     padding: 20px;
-    background: #333;
+    background: transparent;
     border-radius: 10px;
     text-align: center;
 }
+
+/* Contenedor principal del evento */
+.event-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Contenedor principal de Event Locations y Event Schedule, (ni idea si sirve de algo)*/
+.event-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px; /* Espacio entre columnas */
+    width: 100%;
+}
+
+.event-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Sección de ubicaciones */
+.event-locations {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.location-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+
+.location {
+    text-align: center;
+}
+
+.location img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Ubicar una imagen a la izquierda y la otra a la derecha 
+.left-location {
+    text-align: right;
+}
+
+.right-location {
+    text-align: left;
+}*/
+
+.location p {
+    color: black;
+    font-weight: bold;
+}
+
+/* Botón para ver la dirección */
+.ver-direccion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.ver-direccion {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: inline-block;
+}
+
+.ver-direccion:hover {
+    background: black;
+    color: white;
+}
+
+.ver-direccion-icon {
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Icono del mapa debajo del botón */
+.map-icon {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.map-icon img {
+    width: 50px;
+    height: auto;
+}
+
+/* Sección de la programación del día */
+.event-schedule {
+    flex: 1;
+    text-align: center;
+}
+
+.event-schedule h3 {
+    color: black;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+.schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+.schedule-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.schedule-item p {
+    margin: 0;
+    font-weight: bold;
+    color: black; /* 🔹 Asegurar que el texto sea negro */
+}
+
+
 
 /* Asegurar que los inputs y selects sean responsivos */
 .info-box input, 
@@ -394,7 +537,7 @@ body {
 /* Botón de volver centrado */
 .volver-btn {
     display: block;
-    margin: 20px auto;
+    margin: 30px auto; /* Lo centra y lo empuja hacia abajo */
     padding: 10px 20px;
     background-color: #007BFF;
     color: white;

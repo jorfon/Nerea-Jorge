@@ -66,42 +66,102 @@
       </div>
       
       <!-- Información del evento -->
-      <div class="info-container" id="info-evento-container">
-          <div class="info-box">
-              <div>
-                  <h2>Ubicación y Horarios</h2>
-                  <p>Información sobre la ermita y lugar del evento.</p>
-              </div>
-              <div>
-                  <h2>Autobuses</h2>
-                  <p>Ubicación y horarios de ida y vuelta.</p>
-              </div>
-          </div>
-          <button onclick="resetView()">🔙 Volver</button>
-      </div>
+      <div class="info-container" id="info-evento-container" style="display: none;">
+        <div class="event-info">
+            <!-- Contenedor de ubicaciones -->
+            <div class="event-locations">
+                <div class="locations-container">
+                    <div class="location left-location">
+                        <img src="img/ermita.jpg" alt="Ermita Santiago">
+                        <p><strong>Ermita Santiago</strong><br>48191 Galdames, Vizcaya</p>
+                    </div>
+                    <div class="location right-location">
+                        <img src="img/torre-loizaga.jpg" alt="Torre Loizaga">
+                        <p><strong>Torre Loizaga</strong><br>48191 Galdames, Vizcaya</p>
+                    </div>
+                </div>
+                <!-- Botón VER DIRECCIÓN -->
+                <a href="https://www.google.com/maps/place/Torre+Loizaga/@43.23523,-3.13312,15z/" 
+                   target="_blank" class="ver-direccion">
+                    VER DIRECCIÓN <span>↗</span>
+                </a>
+                <!-- Icono de ubicación -->
+                <div class="map-icon">
+                    <img src="img/map-icon.png" alt="Ubicación">
+                </div>
+            </div>
+            
+                     <!-- Programación del día (Derecha) -->   
+                     <div class="event-schedule">
+                        <h3>Programación del día</h3>
+                        <div class="schedule">
+                            <div class="schedule-item">
+                                <p>11:00<br><span>Autobús</span></p>
+                                <img src="img/bus-icon.png" alt="Bus">
+                            </div>
+                            <div class="schedule-item">
+                                <p>12:00<br><span>Ceremonia</span></p>
+                                <img src="img/church-icon.png" alt="Ceremonia">
+                            </div>
+                            <div class="schedule-item">
+                                <p>13:00<br><span>Cocktail</span></p>
+                                <img src="img/cocktail-icon.png" alt="Cocktail">
+                            </div>
+                            <div class="schedule-item">
+                                <p>16:00<br><span>Comida</span></p>
+                                <img src="img/food-icon.png" alt="Comida">
+                            </div>
+                            <div class="schedule-item">
+                                <p>19:00<br><span>Fiesta</span></p>
+                                <img src="img/party-icon.png" alt="Fiesta">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botón "Volver" Debajo de Todo -->
+            <!--<button class="volver-btn">🔙 Volver</button>-->
+        </div>
+
       
       <!-- Formulario de confirmación de asistencia -->
-      <div class="info-container" id="confirmar-asistencia-container">
+      <div class="info-container" id="confirmar-asistencia-container" style="display: none;">
+        <form id="asistencia-form">
           <div class="info-box">
               <div>
                   <h2>Confirmación de Asistencia</h2>
-                  <p>Nombre y apellidos: <input type="text" id="name"></p>
-                  <p>¿Asistiré a la boda? <select id="attendance"><option>Sí</option><option>No</option></select></p>
+                  <label for="name">Nombre y apellidos:</label>
+                  <input type="text" id="name" name="nombre" required>
+
+                  <label for="attendance">¿Asistiré a la boda?</label>
+                  <select id="attendance" name="asistencia" required>
+                    <option>Sí</option><option>No</option></select></p>
               </div>
               <div>
                   <h2>Autobús</h2>
-                  <p>¿Necesitarás autobús para la ida? <select id="bus-ida"><option>Moyua</option><option>Sarriko</option><option>No</option></select></p>
-                  <p>¿Necesitarás autobús de vuelta? <select id="bus-vuelta"><option>22 horas</option><option>Fin de fiesta</option><option>No</option></select></p>
+                  <label for="bus-ida">¿Necesitarás autobús para la ida?</label>
+                  <select id="bus-ida" name="autobusIda">
+                    <option>Moyua</option><option>Sarriko</option><option>No</option></select></p>
+
+                  <label for="bus-vuelta">¿Necesitarás autobús de vuelta?</label>
+                  <select id="bus-vuelta" name="autobusVuelta">
+                    <option>22 horas</option><option>Fin de fiesta</option><option>No</option></select></p>
               </div>
               <div>
                   <h2>Consideraciones</h2>
-                  <p>¿Alergias o intolerancias? <input type="text" id="allergies"></p>
-                  <p>¿Alguna otra consideración? <input type="text" id="considerations"></p>
+                  <label for="allergies">¿Alergias o intolerancias?</label>
+                  <input type="text" id="allergies" name="alergias" placeholder="Ejemplo: Gluten, lactosa...">
+
+                  <label for="considerations">¿Alguna otra consideración?</label>
+                  <input type="text" id="considerations" name="otrasConsideraciones" placeholder="Escribe aquí...">
               </div>
           </div>
-          <button onclick="resetView()">🔙 Volver</button>
+
           <!-- Botón de Enviar Datos -->
-          <button onclick="enviarDatos()">Enviar Datos</button>
+          <button type="submit">Enviar Datos</button>
+          <button type="button" onclick="resetView()">🔙 Volver</button>
+      </form>
+      <p id="respuesta"></p>
       </div>
     </section>
   </main>
@@ -119,3 +179,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+

@@ -52,17 +52,21 @@ setInterval(() => {
     updateProgress();
 }, 1000);
 
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbzhPeoPIlGEXNO-eEKnsJcNNq-gTENISv_dtC0w3P4rt7u0Ey71O2QjgqAIWNd8jN19Vg/exec";
+
 // Funciones para mostrar y ocultar secciones
 document.getElementById('info-evento').addEventListener('click', function() {
     let buttons = document.getElementById('buttons-container');
     let infoEvento = document.getElementById('info-evento-container');
-    
+  
     buttons.style.transform = 'translateX(100%)';
     setTimeout(() => {
         buttons.classList.add('hidden');
         infoEvento.style.display = 'block';
         setTimeout(() => infoEvento.style.opacity = '1', 100);
     }, 500);
+
 });
 
 document.getElementById('confirmar-asistencia').addEventListener('click', function() {
@@ -99,44 +103,47 @@ document.querySelectorAll(".volver-btn").forEach(button => {
 
 // Función para enviar los datos a Google Sheets
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbzhPeoPIlGEXNO-eEKnsJcNNq-gTENISv_dtC0w3P4rt7u0Ey71O2QjgqAIWNd8jN19Vg/exec";
+document.getElementById("asistencia-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita el envío tradicional
 
+    // Capturar valores del formulario
+    const nombre = document.getElementById("name").value.trim();
+    const asistencia = document.getElementById("attendance").value;
+    const autobusIda = document.getElementById("bus-ida").value;
+    const autobusVuelta = document.getElementById("bus-vuelta").value;
+    const alergias = document.getElementById("allergies").value.trim() || "Ninguna";
+    const otrasConsideraciones = document.getElementById("considerations").value.trim() || "Ninguna";
 
-function enviarDatos() {
-    const name = document.getElementById("name").value;
-    const attendance = document.getElementById("attendance").value;
-    const busIda = document.getElementById("bus-ida").value;
-    const busVuelta = document.getElementById("bus-vuelta").value;
-    const allergies = document.getElementById("allergies").value;
-    const considerations = document.getElementById("considerations").value;
+    // Validar campos obligatorios
+    if (!nombre) {
+        alert("Por favor, ingresa tu nombre y apellidos.");
+        return;
+    }
 
-    const data = {
-        name,
-        attendance,
-        busIda,
-        busVuelta,
-        allergies,
-        considerations,
-    };
+    if (!asistencia) {
+        alert("Por favor, selecciona si asistirás a la boda.");
+        return;
+    }
 
-    
+    // Objeto con los datos a enviar (coincide con los nombres en Google Sheets)
+    const datos = { nombre, asistencia, autobusIda, autobusVuelta, alergias, otrasConsideraciones };
 
-    console.log("Datos a enviar:", data);
+    // Mostrar datos en consola (para depuración)
+    console.log("Datos a enviar:", datos);
+
 
     fetch(scriptURL, {
         method: "POST",
+        mode: "no-cors",  // Importante para evitar problemas con CORS
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(datos),
     })
-    .then((response) => {
-        if (response.ok) {
-            alert("Datos enviados correctamente. ¡Gracias por confirmar!");
-        } else {
-            alert("Hubo un problema al enviar los datos.");
-        }
+    .then(() => {
+        alert("✅ Datos enviados correctamente. ¡Gracias por confirmar!");
+        document.getElementById("asistencia-form").reset(); // Limpia el formulario
     })
-    .catch((error) => {
-        console.error("Error al enviar los datos:", error);
-        alert("No se pudo enviar la información. Intenta más tarde.");
+    .catch(error => {
+        console.error("❌ Error al enviar los datos:", error);
+        alert("⚠️ No se pudo enviar la información. Intenta más tarde.");
     });
-}
+})
